@@ -518,3 +518,101 @@ body.detail-open .site-sub {
 .detail-desc a:hover {
   color: #cc0000;
 }
+
+/* =========================================
+   MOBILE = DESKTOP EXPERIENCE (MODULE SCALE)
+   ========================================= */
+
+@media (max-width: 760px) {
+
+  :root {
+    --header-height: 120px;
+  }
+
+  html, body {
+    height: auto;
+  }
+
+  /* HEADER — scale not redesign */
+  .header {
+    padding: 16px 18px 0;
+  }
+
+  .nav-link {
+    font-size: 20px;
+    padding: 16px 12px 0;
+  }
+
+  a.site-title {
+    font-size: clamp(48px, 14vw, 80px);
+  }
+
+  .site-sub {
+    font-size: 12px;
+  }
+
+  /* HORIZONTAL TRACK SAME AS DESKTOP */
+  .track {
+    min-height: calc(100dvh - var(--header-height));
+    padding: 0 18px;
+    align-items: flex-end;
+  }
+
+  /* CARD MODULE SCALE (not fixed px) */
+  .card {
+    padding-right: 16px;
+  }
+
+  .card--portrait {
+    width: clamp(180px, 60vw, 340px);
+  }
+
+  .card--landscape {
+    width: clamp(260px, 85vw, 520px);
+  }
+
+  .card__img-wrap {
+    max-height: 62dvh;
+  }
+
+  /* REMOVE DESKTOP HOVER LIFT (touch devices) */
+  .card:hover .card__img-wrap img,
+  .card:hover .card__img-wrap video {
+    transform: none;
+  }
+
+  /* SCROLL FADE smaller */
+  .scroll-outer::after {
+    width: 30px;
+  }
+
+  /* DETAIL PAGE — full screen on phone */
+  .detail-page.open {
+    top: 0;
+  }
+
+  .detail-bar {
+    height: 56px;
+  }
+
+  .detail-footer {
+    height: 64px;
+  }
+
+  .detail-desc {
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  /* SIDE THUMBS BIGGER TAP TARGET */
+  .detail-side {
+    width: 72px;
+    padding: 0 8px;
+  }
+
+  .detail-side__thumb {
+    width: 56px;
+    height: 56px;
+  }
+
+}
