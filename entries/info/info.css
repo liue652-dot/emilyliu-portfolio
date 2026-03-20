@@ -430,3 +430,81 @@ a.site-title.logo-pulse {
     padding: 0 20px 40px;
   }
 }
+
+/* =========================================
+   FULL MOBILE MODULE FIX
+   (ADD AT VERY BOTTOM — do not change above)
+   ========================================= */
+
+@media (max-width: 760px) {
+
+  /* MAIN INFO GRID */
+  .info-body {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    min-height: auto;
+  }
+
+  .info-text {
+    height: auto;
+  }
+
+  /* PHOTO FULL WIDTH */
+  .photo-frame {
+    max-width: 100%;
+  }
+
+  /* RESUME — STACK COLUMNS */
+  .resume-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .resume-col {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* RESUME ENTRY BETTER FLOW */
+  .resume-entry {
+    grid-template-columns: 70px 1fr;
+  }
+
+  /* REMOVE TEXT WIDTH LIMIT */
+  .resume-desc {
+    max-width: 100%;
+  }
+
+  /* SKILLS STACK CLEAN */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  /* HEADER BETTER MOBILE SPACING */
+  .nav-link {
+    font-size: 22px;
+    padding: 16px 10px 0;
+  }
+
+  .header {
+    padding: 16px 14px 0;
+  }
+
+  .divider {
+    width: calc(100% - 28px);
+    margin: 14px 14px 0;
+  }
+
+  /* FOOTER HINTS SAFE AREA */
+  .footer-tagline {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .color-toggle-hint {
+    left: 14px;
+    bottom: 14px;
+  }
+
+}
