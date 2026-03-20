@@ -385,3 +385,97 @@ a{
 .detail-desc a:hover {
   color: #cc0000;
 }
+
+/* =========================================
+   WORK PAGE — MOBILE MODULE SYSTEM
+   Desktop layout preserved, only scaled
+   ========================================= */
+
+@media (max-width: 760px){
+
+  html,body{
+    height:auto;
+  }
+
+  /* HEADER SCALE */
+  .header{
+    padding:16px 18px 0;
+  }
+
+  .nav-link{
+    font-size:20px;
+    padding:16px 12px 0;
+  }
+
+  .site-title{
+    font-size:22px;
+  }
+
+  /* FILTER BAR — tighter editorial spacing */
+  .filters{
+    padding:140px 18px 12px;
+    gap:16px;
+  }
+
+  .filter-btn{
+    font-size:13px;
+  }
+
+  /* MASONRY MODULE SCALE */
+  .work-grid{
+    column-count:2;          /* still editorial, not single stack */
+    column-gap:28px;
+    padding:10px 18px 120px;
+  }
+
+  .item{
+    margin-bottom:40px;
+  }
+
+  .card__title{
+    font-size:13px;
+  }
+
+  /* IMAGE SAFE HEIGHT */
+  .card__img-wrap img,
+  .card__img-wrap video{
+    transform:none !important;   /* disable hover lift on touch */
+  }
+
+  /* HOVER STRIP — bigger tap comfort */
+  .hover-strip{
+    font-size:12px;
+    padding:12px 18px;
+  }
+
+  /* DETAIL VIEWER — full immersive */
+  .detail-page.open{
+    top:0;
+  }
+
+  .detail-bar{
+    height:56px;
+    padding:0 18px;
+  }
+
+  .detail-footer{
+    height:64px;
+    padding:0 18px;
+  }
+
+  .detail-side{
+    width:72px;
+    padding:0 8px;
+  }
+
+  .detail-side__thumb{
+    width:56px;
+    height:56px;
+  }
+
+  .detail-desc{
+    font-size:14px;
+    padding:20px;
+  }
+
+}
