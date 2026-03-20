@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>· ARCHIVE ·</title>
+  <link rel="icon" type="image/png" href="../home/img/logo/1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="archive.css" />
+</head>
+<body>
+
+  <div id="cursor"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__left">
+      <a href="../work/work.html" class="nav-link">·WORK·</a>
+    </div>
+    <div class="header__center">
+      <a href="../home/home.html" class="site-title-link">
+        <span class="site-title" id="siteTitle">·ARCHIVE·</span>
+      </a>
+      <span class="site-sub">Scroll to zoom · Drag to pan·</span>
+    </div>
+    <div class="header__right">
+      <a href="../info/info.html" class="nav-link">·INFO·</a>
+    </div>
+  </header>
+
+  <div id="cursor-tooltip"></div>
+
+  <!-- INFINITE CANVAS -->
+  <div id="viewport">
+    <canvas id="bgCanvas"></canvas>
+  </div>
+
+  <div class="detail-page" id="detailPage">
+    <div class="detail-bar">
+      <span class="detail-bar__title" id="detailBarTitle"></span>
+      <div class="detail-bar__actions">
+        <button class="detail-bar__btn" id="detailDescBtn">Description</button>
+        <button class="detail-bar__btn" id="detailCloseBtn">Close</button>
+      </div>
+    </div>
+    <div class="detail-stage">
+      <button class="detail-side detail-side--prev hidden" id="detailPrev">
+        <div class="detail-side__thumb" id="prevThumb"></div>
+      </button>
+      <div class="detail-content" id="detailContent"></div>
+      <button class="detail-side detail-side--next hidden" id="detailNext">
+        <div class="detail-side__thumb" id="nextThumb"></div>
+      </button>
+    </div>
+    <div class="detail-footer">
+      <button class="detail-footer__label hidden" id="detailPrevLabel">Previous</button>
+      <div class="detail-dots" id="detailDots"></div>
+      <button class="detail-footer__label hidden" id="detailNextLabel">Next</button>
+    </div>
+    <div class="detail-desc" id="detailDesc"></div>
+  </div>
+
+  <script src="archive.js"></script>
+</body>
+</html>
