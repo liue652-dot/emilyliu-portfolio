@@ -337,3 +337,30 @@ html, body {
   z-index: 10;
 }
 .detail-desc.visible { display: block; }
+
+@media (max-width: 760px) {
+
+  /* HEADER BETTER MOBILE SPACING */
+  .header {
+    padding: 16px 18px 0;
+  }
+
+  .nav-link {
+    font-size: 20px;
+    padding: 16px 12px 0;
+  }
+
+  a.site-title {
+    font-size: clamp(48px, 14vw, 80px);
+  }
+
+  .site-sub {
+    font-size: 12px;
+  }
+
+  .divider {
+    width: calc(100% - 28px);
+    margin: 14px 14px 0;
+  }
+
+}
