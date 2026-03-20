@@ -7,6 +7,8 @@
   const siteSub   = document.querySelector('.site-sub');
   const cards     = Array.from(track ? track.querySelectorAll('.card') : []);
 
+  const isMobile = () => window.innerWidth <= 600;
+
   /* ─────────────────────────────────
      PAGE TRANSITION OVERLAY
   ───────────────────────────────── */
@@ -52,6 +54,7 @@
 
   function initStickyTitles() {
     if (!cards.length || !outer) return;
+    if (isMobile()) return; // titles are visible via CSS on mobile
 
     if (siteTitle) {
       siteTitle.addEventListener('mouseenter', () => {
@@ -211,6 +214,7 @@
   function runIntro() {
     if (window._comingFromWork) return;
     if (!track || !siteTitle || cards.length === 0) return;
+    if (isMobile()) return; // skip complex intro on mobile
 
     siteSub.style.opacity      = '0';
     siteSub.style.transition   = 'none';
@@ -502,15 +506,36 @@
       if (e.key === 'ArrowLeft')  { if (currentImageIndex > 0) showImage(currentImageIndex - 1); }
       if (e.key === 'ArrowRight') { if (currentImageIndex < currentImages.length - 1) showImage(currentImageIndex + 1); }
     });
+
+    /* ── SWIPE SUPPORT FOR DETAIL (mobile) ── */
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    detailPage.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    detailPage.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      // Only handle horizontal swipes (more horizontal than vertical)
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      if (dx < 0 && currentImageIndex < currentImages.length - 1) {
+        showImage(currentImageIndex + 1);
+      } else if (dx > 0 && currentImageIndex > 0) {
+        showImage(currentImageIndex - 1);
+      }
+    }, { passive: true });
   }
 
   initDetailPage();
 
   /* ─────────────────────────────────
-     HORIZONTAL SCROLL
+     HORIZONTAL SCROLL (desktop only)
   ───────────────────────────────── */
 
-  if (outer) {
+  if (outer && !isMobile()) {
     let isDown = false;
     let startX, scrollLeft;
 

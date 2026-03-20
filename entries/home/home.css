@@ -205,37 +205,214 @@ a.site-title {
 
 /* ── MOBILE ───────────────────────────────── */
 @media (max-width: 600px) {
+  :root {
+    --header-height: 110px;
+  }
+
+  /* Header: stack vertically, center everything */
   .header {
-    padding: 16px 16px 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 16px 10px;
+    gap: 0;
+  }
+
+  /* Nav links: sit side by side above/below title */
+  .header__nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    order: 2;
+    margin-top: 6px;
+  }
+
+  /* Move nav links into a row using flex order */
+  .nav-link {
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    padding: 0;
+    order: 2;
+  }
+
+  .nav-link:first-child {
+    order: 1;
+  }
+
+  .nav-link:last-child {
+    order: 3;
+  }
+
+  /* Re-lay out header as: [WORK] [EMILY LIU] [INFO] in one row */
+  .header {
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .header__center {
+    flex: 1;
+    text-align: center;
+  }
+
+  a.site-title {
+    font-size: clamp(28px, 10vw, 52px);
+    line-height: 1;
+    letter-spacing: 0.01em;
   }
 
   .site-sub {
-    font-size: 12px;
+    font-size: 9px;
+    margin-top: 4px;
+    letter-spacing: 0.01em;
   }
 
   .nav-link {
     font-size: 13px;
+    padding: 4px 0 0;
+    white-space: nowrap;
+  }
+
+  /* ── SWITCH TO VERTICAL SCROLL ON MOBILE ── */
+  .scroll-outer {
+    overflow-x: hidden;
+    overflow-y: auto;
+    cursor: default;
+    height: calc(100vh - var(--header-height));
+  }
+
+  .scroll-outer.grabbing {
+    cursor: default;
+  }
+
+  /* Hide the right-fade hint (not relevant for vertical) */
+  .scroll-outer::after {
+    display: none;
   }
 
   .track {
-    padding: 0 16px;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 16px 32px;
+    gap: 16px;
+    min-height: unset;
+    width: 100%;
   }
 
   .card {
-    padding-right: 12px;
+    width: 100% !important;
+    padding-right: 0;
+    flex-shrink: 1;
+  }
+
+  .card--portrait,
+  .card--landscape {
+    width: 100% !important;
+  }
+
+  .card__img-wrap {
+    max-height: none;
+  }
+
+  .card__img-wrap img,
+  .card__img-wrap video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Show titles on mobile (no hover state on touch) */
+  .card__title {
+    visibility: visible;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  /* ── DETAIL PAGE MOBILE ─────────────────── */
+  .detail-page.open {
+    top: 56px;
+  }
+
+  .detail-bar {
+    height: 44px;
+    padding: 0 14px;
+  }
+
+  .detail-bar__title {
+    font-size: 12px;
+  }
+
+  .detail-bar__btn {
+    font-size: 12px;
+  }
+
+  .detail-bar__actions {
+    gap: 16px;
+  }
+
+  /* Hide side thumbnail buttons on mobile — swipe / dots only */
+  .detail-side {
+    display: none;
+  }
+
+  .detail-content {
+    padding: 12px 0;
+    touch-action: pan-y;
+  }
+
+  .detail-footer {
+    height: 44px;
+    padding: 0 14px;
+  }
+
+  .detail-footer__label {
+    font-size: 12px;
+  }
+
+  .detail-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .detail-desc {
+    font-size: 13px;
+    padding: 16px 16px;
+    bottom: 44px;
+  }
+
+  /* Detail open: shrink header to a bar */
+  body.detail-open .header {
+    background: #fff;
+    align-items: center;
+  }
+
+  body.detail-open a.site-title {
+    font-size: 20px;
+    padding-top: 0;
+  }
+
+  body.detail-open .nav-link {
+    padding-top: 0;
+    font-size: 13px;
+  }
+}
+
+/* ── Tablet tweaks (601–900px) ─────────────── */
+@media (min-width: 601px) and (max-width: 900px) {
+  a.site-title {
+    font-size: clamp(48px, 8vw, 90px);
+  }
+
+  .nav-link {
+    font-size: 20px;
+    padding: 16px 16px 0;
   }
 
   .card--portrait {
-    width: 200px;
+    width: clamp(180px, 28vw, 280px);
   }
 
   .card--landscape {
-    width: 300px;
-  }
-
-  .card__title {
-    font-size: 11px;
+    width: clamp(260px, 40vw, 420px);
   }
 }
 
