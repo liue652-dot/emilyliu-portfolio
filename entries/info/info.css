@@ -1,6 +1,4 @@
-/* =============================================
-   EMILY LIU — info.css
-   ============================================= */
+
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -33,7 +31,6 @@ html, body {
   transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
-/* ── HEADER ─────────────────────────────── */
 .header {
   display: flex;
   align-items: flex-start;
@@ -84,7 +81,6 @@ a.site-title {
   transition: color var(--transition-speed) ease;
 }
 
-/* ── DIVIDER ─────────────────────────────── */
 .divider {
   width: calc(100% - 56px);
   margin: 18px 28px 0;
@@ -94,7 +90,6 @@ a.site-title {
   transition: border-color var(--transition-speed) ease;
 }
 
-/* ── MAIN LAYOUT ─────────────────────────── */
 .info-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -105,7 +100,6 @@ a.site-title {
   min-height: calc(100vh - 200px);
 }
 
-/* ── LEFT — PHOTO ────────────────────────── */
 .info-photo {
   padding-top: 40px;
   padding-right: 40px;
@@ -131,7 +125,6 @@ a.site-title {
   inset: 0;
 }
 
-/* ── RIGHT — TEXT ────────────────────────── */
 .info-text {
   padding-top: 30px;
   display: flex;
@@ -181,7 +174,6 @@ a.site-title {
 
 .press-line a:hover { opacity: 0.4; }
 
-/* ── CONTACT ─────────────────────────────── */
 .info-contact {
   margin-top: auto;
   display: flex;
@@ -202,7 +194,6 @@ a.site-title {
 
 .contact-item:hover { opacity: 0.4; }
 
-/* ── FOOTER TAGLINE ──────────────────────── */
 .footer-tagline {
   position: fixed;
   bottom: 22px;
@@ -217,7 +208,6 @@ a.site-title {
   transition: color var(--transition-speed) ease;
 }
 
-/* ── COLOR TOGGLE HINT ───────────────────── */
 .color-toggle-hint {
   position: fixed;
   bottom: 22px;
@@ -236,7 +226,6 @@ a.site-title {
 
 .color-toggle-hint:hover { opacity: 0.7; }
 
-/* ── RESUME SECTION ──────────────────────── */
 .resume-section {
   padding: 0 28px 100px;
   margin-top: 60px;
@@ -351,7 +340,6 @@ a.site-title {
   opacity: 1;
 }
 
-/* ── RESPONSIVE ──────────────────────────── */
 @media (max-width: 760px) {
   .info-body {
     grid-template-columns: 1fr;
@@ -380,7 +368,6 @@ a.site-title {
   .resume-entry { grid-template-columns: 60px 1fr; gap: 0 12px; }
 }
 
-/* ── LOGO PULSE ANIMATION ────────────────── */
 @keyframes logoPulse {
   0%   { transform: scale(1); }
   35%  { transform: scale(0.72); }
@@ -394,7 +381,6 @@ a.site-title.logo-pulse {
   transform-origin: center;
 }
 
-/* ── SKILLS SECTION ──────────────────────── */
 .skills-section {
   padding: 0 28px 60px;
 }
@@ -431,10 +417,6 @@ a.site-title.logo-pulse {
   }
 }
 
-/* =========================================
-   FULL MOBILE MODULE FIX
-   (ADD AT VERY BOTTOM — do not change above)
-   ========================================= */
 
 @media (max-width: 760px) {
 
@@ -465,23 +447,19 @@ a.site-title.logo-pulse {
     grid-row: auto !important;
   }
 
-  /* RESUME ENTRY BETTER FLOW */
   .resume-entry {
     grid-template-columns: 70px 1fr;
   }
 
-  /* REMOVE TEXT WIDTH LIMIT */
   .resume-desc {
     max-width: 100%;
   }
 
-  /* SKILLS STACK CLEAN */
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
 
-  /* HEADER BETTER MOBILE SPACING */
   .header {
     padding: 16px 18px 0;
   }

@@ -23,7 +23,6 @@ html, body {
 
 #cursor { display: none; }
 
-/* ── Header ── */
 .header {
   display: flex;
   align-items: flex-start;
@@ -78,7 +77,6 @@ html, body {
   padding-bottom: 10px;
 }
 
-/* ── Viewport ── */
 #viewport {
   position: fixed;
   top: 0;
@@ -132,7 +130,6 @@ html, body {
   transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Tooltip ── */
 #cursor-tooltip {
   position: fixed;
   pointer-events: none;
@@ -160,7 +157,6 @@ html, body {
   filter: blur(2.5px) brightness(0.78);
 }
 
-/* ── Detail Viewer — light mode ── */
 
 .detail-page {
   position: fixed;
@@ -340,7 +336,6 @@ html, body {
 
 @media (max-width: 760px) {
 
-  /* HEADER BETTER MOBILE SPACING */
   .header {
     padding: 16px 18px 0;
   }

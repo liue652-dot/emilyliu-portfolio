@@ -1,6 +1,4 @@
-/* =============================================
-   EMILY LIU — portfolio.css
-   ============================================= */
+
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -25,7 +23,6 @@ html, body {
   height: 100%;
 }
 
-/* ── HEADER ──────────────────────────────── */
 .header {
   display: flex;
   align-items: flex-start;
@@ -76,7 +73,6 @@ a.site-title {
   color: var(--fg);
 }
 
-/* ── SCROLL CONTAINER ─────────────────────── */
 .scroll-outer {
   width: 100%;
   overflow-x: auto;
@@ -95,7 +91,6 @@ a.site-title {
   cursor: grabbing;
 }
 
-/* ── TRACK ────────────────────────────────── */
 .track {
   display: flex;
   align-items: flex-end;
@@ -104,7 +99,6 @@ a.site-title {
   min-height: calc(100vh - var(--header-height));
 }
 
-/* ── CARD ─────────────────────────────────── */
 .card {
   display: flex;
   flex-direction: column;
@@ -124,7 +118,6 @@ a.site-title {
   width: clamp(300px, 34vw, 520px);
 }
 
-/* ── CARD TITLE (invisible spacer only) ───── */
 .card__title {
   display: block;
   font-family: var(--font-display);
@@ -138,7 +131,6 @@ a.site-title {
   pointer-events: none;
 }
 
-/* ── CARD IMAGE WRAP ──────────────────────── */
 .card__img-wrap {
   position: relative;
   width: 100%;
@@ -160,7 +152,6 @@ a.site-title {
   opacity: 1;
 }
 
-/* ── PLAY BUTTON ──────────────────────────── */
 .play-btn {
   position: absolute;
   top: 50%;
@@ -190,7 +181,6 @@ a.site-title {
   background: rgba(0,0,0,0.52);
 }
 
-/* ── SCROLLBAR HINT FADE ──────────────────── */
 .scroll-outer::after {
   content: '';
   position: fixed;
@@ -203,7 +193,6 @@ a.site-title {
   z-index: 10;
 }
 
-/* ── MOBILE ───────────────────────────────── */
 @media (max-width: 600px) {
   .header {
     padding: 16px 16px 0;
@@ -239,7 +228,6 @@ a.site-title {
   }
 }
 
-/* Card thumbnail video */
 .card__img-wrap video {
   width: 100%;
   height: 100%;
@@ -254,7 +242,6 @@ a.site-title {
   opacity: 1;
 }
 
-/* Detail lightbox video */
 .detail-content video {
   max-width: 100%;
   max-height: 100%;
@@ -262,7 +249,6 @@ a.site-title {
   display: block;
 }
 
-/* Thumbnail previews in side buttons */
 .detail-side__thumb video {
   width: 100%;
   height: 100%;
@@ -270,7 +256,6 @@ a.site-title {
   display: block;
 }
 
-/* ── DETAIL PAGE ──────────────────────────── */
 .detail-page {
   position: fixed;
   left: 0;
@@ -329,7 +314,6 @@ a.site-title {
   opacity: 0.5;
 }
 
-/* ── STAGE: prev thumb | image | next thumb ── */
 .detail-stage {
   flex: 1;
   display: flex;
@@ -392,7 +376,6 @@ a.site-title {
   display: block;
 }
 
-/* ── FOOTER ───────────────────────────────── */
 .detail-footer {
   height: 52px;
   display: flex;
@@ -425,7 +408,6 @@ a.site-title {
   pointer-events: none;
 }
 
-/* ── DOTS ─────────────────────────────────── */
 .detail-dots {
   display: flex;
   gap: 8px;
@@ -447,7 +429,6 @@ a.site-title {
   background: #fff;
 }
 
-/* ── DESCRIPTION ──────────────────────────── */
 .detail-desc {
   display: none;
   position: absolute;
@@ -468,7 +449,6 @@ a.site-title {
   display: block;
 }
 
-/* ── HEADER WHEN DETAIL OPEN ──────────────── */
 body.detail-open .header {
   background: #fff;
 }
@@ -519,9 +499,6 @@ body.detail-open .site-sub {
   color: #cc0000;
 }
 
-/* =========================================
-   MOBILE = DESKTOP EXPERIENCE (MODULE SCALE)
-   ========================================= */
 
 @media (max-width: 760px) {
 
@@ -533,7 +510,6 @@ body.detail-open .site-sub {
     height: auto;
   }
 
-  /* HEADER — scale not redesign */
   .header {
     padding: 16px 18px 0;
   }
@@ -551,14 +527,12 @@ body.detail-open .site-sub {
     font-size: 12px;
   }
 
-  /* HORIZONTAL TRACK SAME AS DESKTOP */
   .track {
     min-height: calc(100dvh - var(--header-height));
     padding: 0 18px;
     align-items: flex-end;
   }
 
-  /* CARD MODULE SCALE (not fixed px) */
   .card {
     padding-right: 16px;
   }
@@ -575,18 +549,15 @@ body.detail-open .site-sub {
     max-height: 62dvh;
   }
 
-  /* REMOVE DESKTOP HOVER LIFT (touch devices) */
   .card:hover .card__img-wrap img,
   .card:hover .card__img-wrap video {
     transform: none;
   }
 
-  /* SCROLL FADE smaller */
   .scroll-outer::after {
     width: 30px;
   }
 
-  /* DETAIL PAGE — full screen on phone */
   .detail-page.open {
     top: 0;
   }
@@ -604,7 +575,6 @@ body.detail-open .site-sub {
     padding: 20px;
   }
 
-  /* SIDE THUMBS BIGGER TAP TARGET */
   .detail-side {
     width: 72px;
     padding: 0 8px;

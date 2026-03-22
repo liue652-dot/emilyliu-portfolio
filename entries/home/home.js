@@ -9,9 +9,6 @@
 
   const isMobile = () => window.innerWidth <= 600;
 
-  /* ─────────────────────────────────
-     PAGE TRANSITION OVERLAY
-  ───────────────────────────────── */
 
   function createOverlay() {
     const el = document.createElement('div');
@@ -48,9 +45,6 @@
 
   fadeIn();
 
-  /* ─────────────────────────────────
-     STICKY CARD TITLES
-  ───────────────────────────────── */
 
   function initStickyTitles() {
     if (!cards.length || !outer) return;
@@ -68,8 +62,6 @@
       });
     }
 
-    // On mobile, CSS already makes titles visible (visibility: visible).
-    // Floaters are a desktop-only enhancement — skip them on mobile.
     if (isMobile()) {
       window._updateStickyTitles = () => {};
       return;
@@ -163,9 +155,6 @@
 
   initStickyTitles();
 
-  /* ─────────────────────────────────
-     INCOMING TITLE TRANSITION
-  ───────────────────────────────── */
   (function () {
     const raw = sessionStorage.getItem('titleFromSmallRect');
     if (!raw) return;
@@ -213,15 +202,6 @@
     });
   })();
 
-  /* ─────────────────────────────────
-     INTRO ANIMATION
-     Runs on all screen sizes.
-     On mobile the font-size clamp is
-     smaller but the animation logic is
-     identical — we read the computed
-     final size instead of hardcoding.
-  ───────────────────────────────── */
-
   function runIntro() {
     if (window._comingFromWork) return;
     if (!track || !siteTitle || cards.length === 0) return;
@@ -231,7 +211,6 @@
     siteTitle.style.transition = 'none';
     siteTitle.style.opacity    = '0';
 
-    // Read the CSS-computed final font-size so mobile clamp is respected
     const finalFontSize = getComputedStyle(siteTitle).fontSize;
     document.body.getBoundingClientRect();
 
@@ -343,9 +322,7 @@
     setTimeout(runIntro, 50);
   }
 
-  /* ─────────────────────────────────
-     DETAIL PAGE
-  ───────────────────────────────── */
+
   function initDetailPage() {
     const detailPage    = document.getElementById('detailPage');
     const detailTitle   = document.getElementById('detailBarTitle');
@@ -513,7 +490,6 @@
       if (e.key === 'ArrowRight') { if (currentImageIndex < currentImages.length - 1) showImage(currentImageIndex + 1); }
     });
 
-    /* ── SWIPE SUPPORT FOR DETAIL ── */
     let touchStartX = 0;
     let touchStartY = 0;
 
@@ -536,11 +512,6 @@
 
   initDetailPage();
 
-  /* ─────────────────────────────────
-     HORIZONTAL SCROLL
-     Mouse drag + wheel only on desktop.
-     Mobile uses native vertical scroll.
-  ───────────────────────────────── */
 
   if (outer) {
     let isDown = false;
@@ -582,10 +553,6 @@
     }, { passive: false });
   }
 
-  /* ─────────────────────────────────
-     NAV ACTIVE STATE
-  ───────────────────────────────── */
-
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
     if (link.href === window.location.href) {
@@ -597,9 +564,7 @@
     });
   });
 
-  /* ─────────────────────────────────
-     TITLE → WORK PAGE TRANSITION
-  ───────────────────────────────── */
+
   const workLink = document.querySelector('a.nav-link[href*="work"]');
   if (workLink && siteTitle) {
     workLink.addEventListener('click', function (e) {

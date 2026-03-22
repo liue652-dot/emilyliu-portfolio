@@ -1,8 +1,4 @@
-/* ─────────────────────────────────────────────────────────────
-   archive.js  —  infinite tiling grid + zoom/pan + custom cursor
-   ───────────────────────────────────────────────────────────── */
 
-// ── Data ──────────────────────────────────────────────────────────────────────
 const WORKS = [
   {
     title:  "Spirit Collage",
@@ -105,7 +101,6 @@ const WORKS = [
 
 ];
 
-// ── Grid dimensions ───────────────────────────────────────────────────────────
 const COUNT = WORKS.length;
 const COLS  = 4; // change this number to however many columns you want
 const ROWS  = Math.ceil(COUNT / COLS);
@@ -114,7 +109,6 @@ const GAP        = 80;
 const TILE_W     = COLS * CELL + (COLS - 1) * GAP + GAP;
 const TILE_H     = ROWS * CELL + (ROWS - 1) * GAP + GAP;
 
-// ── DOM refs ──────────────────────────────────────────────────────────────────
 const viewport   = document.getElementById('viewport');
 const tooltip    = document.getElementById('cursor-tooltip');
 
@@ -127,12 +121,10 @@ const tileLayer  = document.createElement('div');
 tileLayer.id     = 'tileLayer';
 viewport.appendChild(tileLayer);
 
-// ── Zoom / Pan state ──────────────────────────────────────────────────────────
 let scale        = 0.85;
 let tx           = 0;
 let ty           = 0;
 
-// ── Tile management ───────────────────────────────────────────────────────────
 const tileMap = new Map();
 
 function buildTile(tileCol, tileRow) {
@@ -218,13 +210,11 @@ function updateTiles() {
   }
 }
 
-// ── Apply transform ───────────────────────────────────────────────────────────
 function applyTransform() {
   tileLayer.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
   updateTiles();
 }
 
-// ── Zoom ──────────────────────────────────────────────────────────────────────
 const MIN_SCALE  = 0.1;
 const MAX_SCALE  = 10;
 const ZOOM_SPEED = 0.0014;
@@ -246,7 +236,6 @@ viewport.addEventListener('wheel', e => {
   applyTransform();
 }, { passive: false });
 
-// ── Pan ───────────────────────────────────────────────────────────────────────
 let isDragging  = false;
 let dragStartX  = 0;
 let dragStartY  = 0;
@@ -278,7 +267,6 @@ window.addEventListener('mouseup', () => {
   isDragging = false;
 });
 
-// ── Touch ─────────────────────────────────────────────────────────────────────
 let lastTouches = null;
 
 viewport.addEventListener('touchstart', e => {
@@ -315,7 +303,6 @@ viewport.addEventListener('touchmove', e => {
   lastTouches = e.touches;
 }, { passive: false });
 
-// ── Init ──────────────────────────────────────────────────────────────────────
 window.addEventListener('load', () => {
   const vw = viewport.clientWidth;
   const vh = viewport.clientHeight;
@@ -324,12 +311,10 @@ window.addEventListener('load', () => {
   applyTransform();
 });
 
-// ── Title swap ────────────────────────────────────────────────────────────────
 const siteTitle = document.getElementById('siteTitle');
 siteTitle.addEventListener('mouseenter', () => { siteTitle.textContent = '·EMILY LIU·'; });
 siteTitle.addEventListener('mouseleave', () => { siteTitle.textContent = '·ARCHIVE·'; });
 
-// ── Detail Viewer ─────────────────────────────────────────────────────────────
 const page      = document.getElementById('detailPage');
 const content   = document.getElementById('detailContent');
 const desc      = document.getElementById('detailDesc');
@@ -360,7 +345,6 @@ function renderDetail(i) {
 
   content.innerHTML = `<img src="${detailImages[i]}">`;
 
-  // if desc panel is open, update its text live as slides change
   if (desc.classList.contains('visible')) {
     desc.innerHTML = getDescText(i) +
       (currentLink ? `<br><br><a href="${currentLink}" target="_blank" style="color:#000; text-decoration:none; font-family:var(--font-display); font-weight:800; letter-spacing:.04em; text-transform:uppercase;">↗ LINK TO WEBSITE</a>` : '');

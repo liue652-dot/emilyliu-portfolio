@@ -2,7 +2,6 @@
 
 const items = [...document.querySelectorAll('.item')];
 
-/* ───────────────── FILTERS ───────────────── */
 
 const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
 
@@ -25,8 +24,6 @@ filterBtns.forEach(btn => {
 });
 
 
-/* ───────── DETAIL VIEWER (ARCHIVE PORT + VIDEO SUPPORT) ───────── */
-
 const page      = document.getElementById('detailPage');
 const content   = document.getElementById('detailContent');
 const desc      = document.getElementById('detailDesc');
@@ -44,8 +41,6 @@ let detailImages = [];
 let detailIndex  = 0;
 
 
-/* ───────── HELPERS ───────── */
-
 function getThumb(src){
   const ext = src.split('.').pop().toLowerCase();
 
@@ -53,7 +48,6 @@ function getThumb(src){
     return `<video src="${src}" muted autoplay loop playsinline></video>`;
   }
 
-  // PDF — show a label instead of a broken image
   if (ext === 'pdf') {
     return `<div style="width:80px;height:80px;background:#222;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-size:11px;font-weight:800;letter-spacing:.05em;">PDF</div>`;
   }
@@ -61,8 +55,6 @@ function getThumb(src){
   return `<img src="${src}">`;
 }
 
-
-/* ───────── RENDER SLIDE ───────── */
 
 function renderDetail(i) {
   detailIndex = i;
@@ -81,7 +73,6 @@ function renderDetail(i) {
              style="max-width:100%; max-height:100%; object-fit:contain;">
       </video>`;
 
-  // PDF — render as iframe filling the full stage
   } else if (ext === 'pdf') {
     content.innerHTML = `
       <iframe src="${src}"
@@ -115,7 +106,6 @@ function renderDetail(i) {
 }
 
 
-/* ───────── OPEN DETAIL ───────── */
 
 function openDetail(title, images, description) {
 
@@ -144,8 +134,6 @@ function openDetail(title, images, description) {
 }
 
 
-/* ───────── ITEM CLICK ───────── */
-
 items.forEach(item => {
   item.addEventListener('click', e => {
     e.preventDefault();
@@ -155,7 +143,6 @@ items.forEach(item => {
       .map(s => s.trim())
       .filter(Boolean);
 
-    // PDF appended as last slide — only inside the viewer, not the grid
     const pdf = item.dataset.pdf;
     if (pdf) imageList.push(pdf);
 
@@ -172,8 +159,6 @@ items.forEach(item => {
   });
 });
 
-
-/* ───────── CLOSE / NAV ───────── */
 
 document.getElementById('detailCloseBtn').onclick = () => {
   page.classList.remove('open');
