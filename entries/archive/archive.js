@@ -1,6 +1,20 @@
 
 const WORKS = [
   {
+    title:  "Dencare Packaging",
+    src:    "img/liferoot/mock.png",
+    images: "graphics/liferoots/pack.png, graphics/liferoots/kit.png, graphics/liferoots/mock.png",
+    desc:   "08 · 2025 <br> Adobe Illustrator, Photoshop, Figma <br><br> Developing technical skills such as using Figma and Adobe, working with a professional team, and co-designing the landing pages for Luncare (customer-based/professional-based) in Singapore. Learning how to communicate products to the consumer and the professional was another step into my understanding of Communications design.",
+    link:   ""
+  },
+  {
+    title:  "Poster for Jetlag",
+    src:    "img/jetlag.png",
+    images: "img/jetlag.png",
+    desc:   "03 · 2026 <br> Adobe Illustrator, Photoshop <br><br> Event poster for musical gig, hosted by SOB NYC and Jetlag <br><br> <a href='https://www.instagram.com/p/DWec1MSAVA2/' target='_blank'>Link to Post ↗</a>",
+    link:   ""
+  },
+  {
     title:  "Spirit Collage",
     src:    "img/collage1.png",
     images: "img/collage1.png,img/collage2.png,img/collage3.png",
